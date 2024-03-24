@@ -1,0 +1,45 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>cn.ilikexff.TranslateDemon</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>TranslateDemon</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="ilikexff@gmail.com" url="https://www.ilikexff.cn">八尺妖剑</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+        这是[八尺妖剑]个人开发的一款选中翻译插件，支持翻译任意选中内容，无需翻墙也能翻译自如。你的选择，无比猖狂!
+        This is a selected translation plugin developed by [Eight-foot Demon Sword], which supports translating any selected content without the need for a VPN. Your choice is extremely bold!
+        这款翻译插件是一款专为IDEA开发的工具，旨在帮助开发者更方便快速地进行代码注释、文档翻译等工作。通过该插件，用户可以选择需要翻译的文本，轻松实现多语言之间的快速转换，提高开发效率。同时，该插件支持多种主流翻译引擎，确保翻译结果的准确性和质量。无论是在国际化开发中还是在跨语言协作中，这款翻译插件都将成为您的得力助手，让代码翻译变得更加简单和高效。
+        This translation plugin is a tool designed specifically for IDEA to help developers easily and quickly translate code comments, documentation, and other text. With this plugin, users can select the text they want to translate and seamlessly convert it between multiple languages, enhancing development efficiency. The plugin supports various mainstream translation engines to ensure the accuracy and quality of the translations. Whether you are working on international development projects or collaborating across language barriers, this translation plugin will be your reliable assistant, making code translation simpler and more efficient.
+  ]]>
+    </description>
+    <version>1.0</version>
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+    <actions>
+        <!--
+            1.将图标放到resources目录下
+            2.给action标签添加icon属性
+        -->
+        <action id="TranslateDemon" class="cn.ilikexff.translatedemon.TranslateDemonAction" text="翻译妖"
+                description="This is a translate plugin! Smart and compact!" icon="/icons/transient.svg">
+            <add-to-group group-id="MainToolbarRight" anchor="last"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt T" second-keystroke="shift ctrl M"/>
+        </action>
+    </actions>
+</idea-plugin>
