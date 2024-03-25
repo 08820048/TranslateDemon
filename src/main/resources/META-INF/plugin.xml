@@ -35,7 +35,7 @@
             2.给action标签添加icon属性
         -->
         <action id="TranslateDemon" class="cn.ilikexff.translatedemon.TranslateDemonAction" text="翻译妖"
-                description="This is a translate plugin! Smart and compact!" icon="/icons/transient.svg">
+                description="This is a translate plugin! Smart and compact!" icon="/icons/ts.svg">
             <add-to-group group-id="MainToolbarRight" anchor="last"/>
             <add-to-group group-id="EditorPopupMenu" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt T" second-keystroke="shift ctrl M"/>

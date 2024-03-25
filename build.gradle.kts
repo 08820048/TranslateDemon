@@ -37,10 +37,10 @@ tasks {
     patchPluginXml {
         sinceBuild.set("221")
         untilBuild.set("241.*")
-        changeNotes.set("[v1.0.1]\n" +
-                "1.Update plugin description information;\n" +
-                "2.Added support for Chinese character encoding\n" +
-                "3.Other optimization\n")
+        changeNotes.set("<h1>version 1.0.1</h1><br>" +
+                "<p>1.Update plugin description information;</p><br>" +
+                "<p>2.Added support for Chinese character encoding</p><br>" +
+                "<p>3.Other optimization</p>")
 
 
     }
