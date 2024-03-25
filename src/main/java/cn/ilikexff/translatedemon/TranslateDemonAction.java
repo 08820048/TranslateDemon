@@ -24,29 +24,35 @@ public class TranslateDemonAction extends AnAction {
      */
     @Override
     public void actionPerformed(AnActionEvent e) {
-        // e.ÓÃ»§´¥·¢ÊÂ¼şµÄÏêÇé£¬°üº¬ÁËËùÓĞĞÅÏ¢
-
-        // ²å¼ş±»´¥·¢Ö®ºó»ñÈ¡ÓÃ»§Ñ¡ÖĞµÄÄÚÈİ
+        // e.ç”¨æˆ·è§¦å‘äº‹ä»¶çš„è¯¦æƒ…ï¼ŒåŒ…å«äº†æ‰€æœ‰ä¿¡æ¯
+        // æ’ä»¶è¢«è§¦å‘ä¹‹åè·å–ç”¨æˆ·é€‰ä¸­çš„å†…å®¹
         String selectedText = e.getDataContext().getData(PlatformDataKeys.EDITOR).getCaretModel().getCurrentCaret().getSelectedText();
-        // Ê¹ÓÃµÚÈı·½·­ÒëAPI»ñÈ¡ÒëÎÄ
+        // ä½¿ç”¨ç¬¬ä¸‰æ–¹ç¿»è¯‘APIè·å–è¯‘æ–‡
         try {
             String res = translate(selectedText);
-            Messages.showMessageDialog(res,"·­Òë½á¹û:", Messages.getInformationIcon());
+            Messages.showMessageDialog(res,"ç¿»è¯‘ç»“æœ:", Messages.getInformationIcon());
         } catch (NoSuchAlgorithmException ex) {
             throw new RuntimeException(ex);
         }
     }
 
+    /**
+     * This method is used to translate the given text from English to Chinese using the Youdao translation API.
+     *
+     * @param text the text to be translated
+     * @return the translated text in Chinese
+     * @throws NoSuchAlgorithmException if an error occurs during the authentication process
+     */
     public  String translate(String text) throws NoSuchAlgorithmException {
-        final String APP_KEY = "4437c50c70c33777";     // ÄúµÄÓ¦ÓÃID
-        final String APP_SECRET = "N6Q2iXKfsR5n5vwG19jjcRzmjo3U9ScB";  // ÄúµÄÓ¦ÓÃÃÜÔ¿
-        // Ìí¼ÓÇëÇó²ÎÊı
+        final String APP_KEY = "";     // æ‚¨çš„åº”ç”¨ID
+        final String APP_SECRET = "";  // æ‚¨çš„åº”ç”¨å¯†é’¥
+        // æ·»åŠ è¯·æ±‚å‚æ•°
         Map<String, String[]> params = createRequestParams(text);
-        // Ìí¼Ó¼øÈ¨Ïà¹Ø²ÎÊı
+        // æ·»åŠ é‰´æƒç›¸å…³å‚æ•°
         AuthV3Util.addAuthParams(APP_KEY, APP_SECRET, params);
-        // ÇëÇóapi·şÎñ
+        // è¯·æ±‚apiæœåŠ¡
         byte[] result = HttpUtil.doPost("https://openapi.youdao.com/api", null, params, "application/json");
-        // ´òÓ¡·µ»Ø½á¹û
+        // æ‰“å°è¿”å›ç»“æœ
         if (result != null) {
             System.out.println(new String(result, StandardCharsets.UTF_8));
             String jsonStr = new String(result, StandardCharsets.UTF_8);
@@ -57,19 +63,19 @@ public class TranslateDemonAction extends AnAction {
             return translateResult;
 
         }
-        return "Å¶ºğ!·­Òë³ö´íÀ²,°Ñ¿ª·¢ÕßÀ­¹ıÀ´´òËÀ!";
+        return "å“¦å¼!ç¿»è¯‘å‡ºé”™å•¦,æŠŠå¼€å‘è€…æ‹‰è¿‡æ¥æ‰“æ­»!";
         //System.exit(0);
     }
 
     private static Map<String, String[]> createRequestParams(String q) {
         /*
-         * note: ½«ÏÂÁĞ±äÁ¿Ìæ»»ÎªĞèÒªÇëÇóµÄ²ÎÊı
-         * È¡Öµ²Î¿¼ÎÄµµ: https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/API%E6%96%87%E6%A1%A3/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-API%E6%96%87%E6%A1%A3.html
+         * note: å°†ä¸‹åˆ—å˜é‡æ›¿æ¢ä¸ºéœ€è¦è¯·æ±‚çš„å‚æ•°
+         * å–å€¼å‚è€ƒæ–‡æ¡£: https://ai.youdao.com/DOCSIRMA/html/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E7%BF%BB%E8%AF%91/API%E6%96%87%E6%A1%A3/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1/%E6%96%87%E6%9C%AC%E7%BF%BB%E8%AF%91%E6%9C%8D%E5%8A%A1-API%E6%96%87%E6%A1%A3.html
          */
-        //String q = "this is text"; // ·­ÒëµÄÎÄ±¾
-        String from = "en"; // Ô´ÓïÖÖ
-        String to = "zh-CHS"; // ·­ÒëÓïÖÖ
-        //String vocabId = "ÄúµÄÓÃ»§´Ê±íID";
+        //String q = "this is text"; // ç¿»è¯‘çš„æ–‡æœ¬
+        String from = "en"; // æºè¯­ç§
+        String to = "zh-CHS"; // ç¿»è¯‘è¯­ç§
+        //String vocabId = "æ‚¨çš„ç”¨æˆ·è¯è¡¨ID";
 
         return new HashMap<String, String[]>() {{
             put("q", new String[]{q});

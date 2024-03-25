@@ -14,10 +14,9 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-        这是[八尺妖剑]个人开发的一款选中翻译插件，支持翻译任意选中内容，无需翻墙也能翻译自如。你的选择，无比猖狂!
-        This is a selected translation plugin developed by [Eight-foot Demon Sword], which supports translating any selected content without the need for a VPN. Your choice is extremely bold!
-        这款翻译插件是一款专为IDEA开发的工具，旨在帮助开发者更方便快速地进行代码注释、文档翻译等工作。通过该插件，用户可以选择需要翻译的文本，轻松实现多语言之间的快速转换，提高开发效率。同时，该插件支持多种主流翻译引擎，确保翻译结果的准确性和质量。无论是在国际化开发中还是在跨语言协作中，这款翻译插件都将成为您的得力助手，让代码翻译变得更加简单和高效。
-        This translation plugin is a tool designed specifically for IDEA to help developers easily and quickly translate code comments, documentation, and other text. With this plugin, users can select the text they want to translate and seamlessly convert it between multiple languages, enhancing development efficiency. The plugin supports various mainstream translation engines to ensure the accuracy and quality of the translations. Whether you are working on international development projects or collaborating across language barriers, this translation plugin will be your reliable assistant, making code translation simpler and more efficient.
+    This is an IDEA text selection and translation plugin personally developed by [Eight-foot Demon Sword], which supports translating any selected content without the need for a VPN!
+    这是[八尺妖剑]个人开发的一款IDEA文本选中翻译插件，支持翻译任意选中内容，无需翻墙也能翻译自如!更多信息欢迎访问
+    <a href="https://www.ilikexff.cn"> 个人博客</a>
   ]]>
     </description>
     <version>1.0</version>

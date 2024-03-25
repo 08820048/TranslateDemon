@@ -8,7 +8,7 @@ dependencies {
     implementation("com.alibaba.fastjson2:fastjson2:2.0.40")
 }
 group = "cn.ilikexff"
-version = "1.0-SNAPSHOT"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -28,14 +28,21 @@ tasks {
     withType<JavaCompile> {
         sourceCompatibility = "17"
         targetCompatibility = "17"
+        options.encoding = "UTF-8"
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
     }
 
     patchPluginXml {
-        sinceBuild.set("231")
+        sinceBuild.set("221")
         untilBuild.set("241.*")
+        changeNotes.set("[v1.0.1]\n" +
+                "1.Update plugin description information;\n" +
+                "2.Added support for Chinese character encoding\n" +
+                "3.Other optimization\n")
+
+
     }
 
     signPlugin {
